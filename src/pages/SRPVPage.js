@@ -1,16 +1,21 @@
-import { Link } from "react-router-dom";
-import "./Pages.css";
+import PageLayout from "../components/layout/PageLayout";
 
-function SRPVPage() {
+const SRPVPage = () => {
   return (
-    <div className="page">
-      <Link to="/" className="back-button">
-        ← Back to Home
-      </Link>
-      <h1>SRPV Special Sales</h1>
+    <PageLayout title="SRPV Special Sales">
       {/* Add your SRPV specific content here */}
-    </div>
+      <div className="srpv-content">
+        <p>Welcome to the SRPV Special Sales management interface.</p>
+
+        <style jsx>{`
+          .srpv-content {
+            text-align: left;
+            padding: 1rem;
+          }
+        `}</style>
+      </div>
+    </PageLayout>
   );
-}
+};
 
 export default SRPVPage;

@@ -1,16 +1,20 @@
-import { Link } from "react-router-dom";
-import "./Pages.css";
+import PageLayout from "../components/layout/PageLayout";
 
-function GrailedPage() {
+const GrailedPage = () => {
   return (
-    <div className="page">
-      <Link to="/" className="back-button">
-        ← Back to Home
-      </Link>
-      <h1>Grailed Special Sales</h1>
-      {/* Add your Grailed specific content here */}
-    </div>
+    <PageLayout title="Grailed Special Sales">
+      <div className="grailed-content">
+        <p>Welcome to the Grailed Special Sales management interface.</p>
+
+        <style jsx>{`
+          .grailed-content {
+            text-align: left;
+            padding: var(--spacing-sm);
+          }
+        `}</style>
+      </div>
+    </PageLayout>
   );
-}
+};
 
 export default GrailedPage;

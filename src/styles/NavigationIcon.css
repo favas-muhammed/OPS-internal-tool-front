@@ -1,0 +1,38 @@
+.nav-icon {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transform: scale(0.9);
+  transition: var(--transition-default);
+  padding: 0.5rem;
+}
+
+.nav-icon--interactive {
+  cursor: pointer;
+}
+
+.nav-icon--interactive:hover {
+  transform: scale(1.1);
+  z-index: 3;
+}
+
+.nav-icon__circle {
+  width: 80px;
+  height: 80px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease;
+}
+
+.nav-icon__label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary);
+}

@@ -1,16 +1,20 @@
-import { Link } from "react-router-dom";
-import "./Pages.css";
+import PageLayout from "../components/layout/PageLayout";
 
-function MPDPage() {
+const MPDPage = () => {
   return (
-    <div className="page">
-      <Link to="/" className="back-button">
-        ← Back to Home
-      </Link>
-      <h1>MPD Special Sales</h1>
-      {/* Add your MPD specific content here */}
-    </div>
+    <PageLayout title="MPD Special Sales">
+      <div className="mpd-content">
+        <p>Welcome to the MPD Special Sales management interface.</p>
+
+        <style jsx>{`
+          .mpd-content {
+            text-align: left;
+            padding: var(--spacing-sm);
+          }
+        `}</style>
+      </div>
+    </PageLayout>
   );
-}
+};
 
 export default MPDPage;

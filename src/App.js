@@ -1,145 +1,82 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
-import "./App.css";
+import PageLayout from "./components/layout/PageLayout";
+import NavigationIcon from "./components/navigation/NavigationIcon";
+import ExpandableSection from "./components/sections/ExpandableSection";
 import SRPVPage from "./pages/SRPVPage";
 import VCPage from "./pages/VCPage";
 import TVBPage from "./pages/TVBPage";
 import MPDPage from "./pages/MPDPage";
 import GrailedPage from "./pages/GrailedPage";
+import "./styles/App.css";
 
-function MainContent() {
+const HomePage = () => {
   const navigate = useNavigate();
 
-  const handleProfileClick = (path) => {
+  const handleNavigation = (path) => {
     navigate(path);
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>TBC - Internal Tool</h1>
-      </header>
-      <main className="App-main">
-        <div className="welcome-section">
-          <h2>Welcome to TBC Internal Tool</h2>
-          <p>Your centralized platform for internal operations</p>
-          <div className="special-sales-container">
-            <div className="special-sales-icon">
-              <div className="icon">
-                <i className="fas fa-percent"></i>
-              </div>
-              <span>Special Sales</span>
-            </div>
-            <div className="profile-icons">
-              <div className="profile-icon">
-                <div className="icon">
-                  <i className="fas fa-shopping-bag"></i>
-                </div>
-                <span>CHOOSE</span>
-              </div>
-              <div
-                className="profile-icon"
-                onClick={() => handleProfileClick("/srpv")}
-                role="button"
-                tabIndex={0}
-                onKeyPress={(e) =>
-                  e.key === "Enter" && handleProfileClick("/srpv")
-                }
-              >
-                <div className="icon">
-                  <i className="fas fa-shopping-bag"></i>
-                </div>
-                <span>SRPV</span>
-              </div>
-              <div
-                className="profile-icon"
-                onClick={() => handleProfileClick("/vc")}
-                role="button"
-                tabIndex={0}
-                onKeyPress={(e) =>
-                  e.key === "Enter" && handleProfileClick("/vc")
-                }
-              >
-                <div className="icon">
-                  <i className="fas fa-shopping-bag"></i>
-                </div>
-                <span>VC</span>
-              </div>
-              <div
-                className="profile-icon"
-                onClick={() => handleProfileClick("/tvb")}
-                role="button"
-                tabIndex={0}
-                onKeyPress={(e) =>
-                  e.key === "Enter" && handleProfileClick("/tvb")
-                }
-              >
-                <div className="icon">
-                  <i className="fas fa-shopping-bag"></i>
-                </div>
-                <span>TVB</span>
-              </div>
-              <div
-                className="profile-icon"
-                onClick={() => handleProfileClick("/mpd")}
-                role="button"
-                tabIndex={0}
-                onKeyPress={(e) =>
-                  e.key === "Enter" && handleProfileClick("/mpd")
-                }
-              >
-                <div className="icon">
-                  <i className="fas fa-shopping-bag"></i>
-                </div>
-                <span>MPD</span>
-              </div>
-              <div className="profile-icon">
-                <div className="icon">
-                  <i className="fas fa-shopping-bag"></i>
-                </div>
-                <span>Bradery</span>
-              </div>
-              <div
-                className="profile-icon"
-                onClick={() => handleProfileClick("/grailed")}
-                role="button"
-                tabIndex={0}
-                onKeyPress={(e) =>
-                  e.key === "Enter" && handleProfileClick("/grailed")
-                }
-              >
-                <div className="icon">
-                  <i className="fas fa-shopping-bag"></i>
-                </div>
-                <span>Grailed</span>
-              </div>
-            </div>
-          </div>
-          <div className="dhl-shipping-container">
-            <div className="dhl-shipping-icon">
-              <div className="icon">
-                <i className="fas fa-truck"></i>
-              </div>
-              <span>DHL Shipping Cost</span>
-            </div>
-            <div className="profile-icons">
-              <div className="profile-icon">
-                <div className="icon">
-                  <i className="fas fa-file-invoice"></i>
-                </div>
-                <span>InvoiceQuick</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
-  );
-}
+    <PageLayout showBackButton={false} title="Welcome to TBC Internal Tool">
+      <p className="home-description">
+        Your centralized platform for internal operations
+      </p>
 
-function App() {
+      <div className="home-sections">
+        <ExpandableSection mainIcon="percent" mainLabel="Special Sales">
+          <NavigationIcon
+            icon="shopping-bag"
+            label="CHOOSE"
+            isInteractive={false}
+          />
+          <NavigationIcon
+            icon="shopping-bag"
+            label="SRPV"
+            onClick={() => handleNavigation("/srpv")}
+          />
+          <NavigationIcon
+            icon="shopping-bag"
+            label="VC"
+            onClick={() => handleNavigation("/vc")}
+          />
+          <NavigationIcon
+            icon="shopping-bag"
+            label="TVB"
+            onClick={() => handleNavigation("/tvb")}
+          />
+          <NavigationIcon
+            icon="shopping-bag"
+            label="MPD"
+            onClick={() => handleNavigation("/mpd")}
+          />
+          <NavigationIcon
+            icon="shopping-bag"
+            label="Bradery"
+            isInteractive={false}
+          />
+          <NavigationIcon
+            icon="shopping-bag"
+            label="Grailed"
+            onClick={() => handleNavigation("/grailed")}
+          />
+        </ExpandableSection>
+
+        <ExpandableSection mainIcon="truck" mainLabel="DHL Shipping Cost">
+          <NavigationIcon
+            icon="file-invoice"
+            label="InvoiceQuick"
+            isInteractive={false}
+          />
+        </ExpandableSection>
+      </div>
+    </PageLayout>
+  );
+};
+
+const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainContent />} />
+      <Route path="/" element={<HomePage />} />
       <Route path="/srpv" element={<SRPVPage />} />
       <Route path="/vc" element={<VCPage />} />
       <Route path="/tvb" element={<TVBPage />} />
@@ -147,6 +84,6 @@ function App() {
       <Route path="/grailed" element={<GrailedPage />} />
     </Routes>
   );
-}
+};
 
 export default App;

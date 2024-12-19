@@ -1,16 +1,20 @@
-import { Link } from "react-router-dom";
-import "./Pages.css";
+import PageLayout from "../components/layout/PageLayout";
 
-function VCPage() {
+const VCPage = () => {
   return (
-    <div className="page">
-      <Link to="/" className="back-button">
-        ← Back to Home
-      </Link>
-      <h1>VC Special Sales</h1>
-      {/* Add your VC specific content here */}
-    </div>
+    <PageLayout title="VC Special Sales">
+      <div className="vc-content">
+        <p>Welcome to the VC Special Sales management interface.</p>
+
+        <style jsx>{`
+          .vc-content {
+            text-align: left;
+            padding: var(--spacing-sm);
+          }
+        `}</style>
+      </div>
+    </PageLayout>
   );
-}
+};
 
 export default VCPage;

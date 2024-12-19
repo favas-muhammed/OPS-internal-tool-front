@@ -1,16 +1,20 @@
-import { Link } from "react-router-dom";
-import "./Pages.css";
+import PageLayout from "../components/layout/PageLayout";
 
-function TVBPage() {
+const TVBPage = () => {
   return (
-    <div className="page">
-      <Link to="/" className="back-button">
-        ← Back to Home
-      </Link>
-      <h1>TVB Special Sales</h1>
-      {/* Add your TVB specific content here */}
-    </div>
+    <PageLayout title="TVB Special Sales">
+      <div className="tvb-content">
+        <p>Welcome to the TVB Special Sales management interface.</p>
+
+        <style jsx>{`
+          .tvb-content {
+            text-align: left;
+            padding: var(--spacing-sm);
+          }
+        `}</style>
+      </div>
+    </PageLayout>
   );
-}
+};
 
 export default TVBPage;
