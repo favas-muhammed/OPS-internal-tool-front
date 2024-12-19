@@ -7,6 +7,9 @@ import VCPage from "./pages/VCPage";
 import TVBPage from "./pages/TVBPage";
 import MPDPage from "./pages/MPDPage";
 import GrailedPage from "./pages/GrailedPage";
+import ChoosePage from "./pages/ChoosePage";
+import BraderyPage from "./pages/BraderyPage";
+import InvoiceQuickPage from "./pages/InvoiceQuickPage";
 import "./styles/App.css";
 
 const HomePage = () => {
@@ -27,7 +30,7 @@ const HomePage = () => {
           <NavigationIcon
             icon="shopping-bag"
             label="CHOOSE"
-            isInteractive={false}
+            onClick={() => handleNavigation("/choose")}
           />
           <NavigationIcon
             icon="shopping-bag"
@@ -52,7 +55,7 @@ const HomePage = () => {
           <NavigationIcon
             icon="shopping-bag"
             label="Bradery"
-            isInteractive={false}
+            onClick={() => handleNavigation("/bradery")}
           />
           <NavigationIcon
             icon="shopping-bag"
@@ -65,7 +68,7 @@ const HomePage = () => {
           <NavigationIcon
             icon="file-invoice"
             label="InvoiceQuick"
-            isInteractive={false}
+            onClick={() => handleNavigation("/invoice-quick")}
           />
         </ExpandableSection>
       </div>
@@ -82,6 +85,9 @@ const App = () => {
       <Route path="/tvb" element={<TVBPage />} />
       <Route path="/mpd" element={<MPDPage />} />
       <Route path="/grailed" element={<GrailedPage />} />
+      <Route path="/choose" element={<ChoosePage />} />
+      <Route path="/bradery" element={<BraderyPage />} />
+      <Route path="/invoice-quick" element={<InvoiceQuickPage />} />
     </Routes>
   );
 };
